@@ -1,15 +1,20 @@
 import firebase from 'firebase'
 
-var firebaseConfig = {
-    apiKey: "AIzaSyDBD-aDf_zuJ3keJaAApGxNajQBbafpvBc",
-    authDomain: "tinder-clone-e32d4.firebaseapp.com",
-    databaseURL: "https://tinder-clone-e32d4.firebaseio.com",
-    projectId: "tinder-clone-e32d4",
-    storageBucket: "tinder-clone-e32d4.appspot.com",
-    messagingSenderId: "88512968491",
-    appId: "1:88512968491:web:1ab138e646ffd5623fb76e",
-    measurementId: "G-J70R25R0M9"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+var firebaseApp = firebase.initializeApp({
+    apiKey: process.env.REACT_APP_APIKEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASEURL,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_APPID,
+    measurementId: process.env.REACT_APP_MEASUREMENTID,
+
+});
+
+const db = firebaseApp.firestore();
+const storage = firebase.storage();
+const auth = firebase.auth()
+const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+
+export { db, storage, timestamp, auth };

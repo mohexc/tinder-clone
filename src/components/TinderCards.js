@@ -1,4 +1,3 @@
-import { Col, Row } from 'antd'
 import React, { useState } from 'react'
 import TinderCard from "react-tinder-card"
 
