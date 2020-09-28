@@ -1,21 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TinderCard from "react-tinder-card"
+import { db } from '../config/firebase'
 
 
 const TinderCards = () => {
-    const [people, setPeople] = useState([
-        {
-            name: "steve jobs",
-            url: "https://source.unsplash.com/user/erondu/1600x900"
-        },
-        {
-            name: "mark zuckerberg",
-            url: "https://source.unsplash.com/user/erondu/1600x901"
-        }
-    ])
+    const [people, setPeople] = useState([])
+
+    useEffect(() => {
+        db.collection('people').onSnapshot((snapshot) => setPeople(snapshot.docs.map(doc => doc.data())))
+
+    }, [])
     return (
         <React.Fragment>
-            <h1>Tinder</h1>
+
             <div className="tinderCards__cardContainer">
                 {people.map((person) => (
                     <TinderCard className="swipe" key={person.name} preventSwipe={["up", "down"]}>
