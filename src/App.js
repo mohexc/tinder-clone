@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import './App.less';
 import Header from './components/Header';
+import SwipeButtons from './components/SwipeButtons';
 import TinderCards from './components/TinderCards';
 
 // Main component
@@ -21,6 +22,7 @@ const App = () => {
           </Route>
           <Route path="/">
             <TinderCards />
+            <SwipeButtons />
           </Route>
         </Switch>
       </Router>

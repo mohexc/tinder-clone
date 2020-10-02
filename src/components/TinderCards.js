@@ -7,12 +7,16 @@ const TinderCards = () => {
     const [people, setPeople] = useState([])
 
     useEffect(() => {
-        db.collection('people').onSnapshot((snapshot) => setPeople(snapshot.docs.map(doc => doc.data())))
+        const unsubscribe = db
+            .collection('people')
+            .onSnapshot((snapshot) => setPeople(snapshot.docs.map(doc => doc.data())))
 
+        return () => {
+            unsubscribe()
+        }
     }, [])
     return (
         <React.Fragment>
-
             <div className="tinderCards__cardContainer">
                 {people.map((person) => (
                     <TinderCard className="swipe" key={person.name} preventSwipe={["up", "down"]}>
