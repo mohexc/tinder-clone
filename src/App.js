@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import './App.less';
+import Chats from './components/Chats';
 import Header from './components/Header';
 import SwipeButtons from './components/SwipeButtons';
 import TinderCards from './components/TinderCards';
@@ -18,7 +19,7 @@ const App = () => {
         <Switch>
           <Route path="/chat">
             <Header backButton="/" />
-            <h1>I am the chatPage</h1>
+            <Chats />
           </Route>
           <Route path="/">
             <Header />

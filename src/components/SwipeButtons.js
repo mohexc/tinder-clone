@@ -6,18 +6,20 @@ import {
 } from "react-icons/gr";
 import { BsFillHeartFill } from "react-icons/bs";
 import { AiFillThunderbolt } from "react-icons/ai";
-import { Button } from 'antd';
 import IconButton from './common/IconButton';
 
+const styles = {
+    iconButton: { border: "1px solid lightgray" }
+}
 
 const SwipeButtons = () => {
     return (
         <div className="swipeButtons">
-            <IconButton size="large" shape="circle" className="icons-button"><GrUndo color="#f5b748" size="24" /></IconButton>
-            <Button size="large" shape="circle" className="icons-button"><GrClose color="red" size="24" /></Button>
-            <Button size="large" shape="circle" className="icons-button"><GrStar color="#62b4f9" size="24" /></Button>
-            <Button size="large" shape="circle" className="icons-button"><BsFillHeartFill color="green" size="24" /></Button>
-            <Button size="large" shape="circle" className="icons-button"><AiFillThunderbolt color="violet" size="24" /></Button>
+            <IconButton style={styles.iconButton} ><GrUndo color="#f5b748" size="32" /></IconButton>
+            <IconButton style={styles.iconButton} ><GrClose color="red" size="32" /></IconButton>
+            <IconButton style={styles.iconButton} ><GrStar color="#62b4f9" size="32" /></IconButton>
+            <IconButton style={styles.iconButton} ><BsFillHeartFill color="green" size="32" /></IconButton>
+            <IconButton style={styles.iconButton} ><AiFillThunderbolt color="violet" size="32" /></IconButton>
         </div>
     )
 }

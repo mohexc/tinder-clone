@@ -15,17 +15,17 @@ const Header = ({ backButton }) => {
         <div className="header__app">
             {backButton
                 ? <IconButton onClick={() => history.replace(backButton)}>
-                    <IoIosArrowBack />
+                    <IoIosArrowBack size="32" />
                 </IconButton>
                 : (<IconButton>
-                    <BsPersonFill className="header__icons" />
+                    <BsPersonFill size="32" className="header__icons" />
                 </IconButton>)
             }
-            <IconButton>
-                <SiTinder className="header__icons__active" />
+            <IconButton onClick={() => history.push("/")}>
+                <SiTinder size="32" className="header__icons__active" />
             </IconButton>
-            <IconButton>
-                <IoMdChatbubbles className="header__icons" />
+            <IconButton onClick={() => history.push("chat")}>
+                <IoMdChatbubbles size="32" className="header__icons" />
             </IconButton>
 
         </div>
