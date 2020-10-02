@@ -15,12 +15,13 @@ const App = () => {
   return (
     <React.Fragment>
       <Router>
-        <Header />
         <Switch>
           <Route path="/chat">
+            <Header backButton="/" />
             <h1>I am the chatPage</h1>
           </Route>
           <Route path="/">
+            <Header />
             <TinderCards />
             <SwipeButtons />
           </Route>
